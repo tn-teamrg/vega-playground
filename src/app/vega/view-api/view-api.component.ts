@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import * as vega from "vega";
-import { View } from 'vega';
-// import { View } from 'vega';
 
 @Component({
   selector: 'app-view-api',
@@ -22,9 +20,12 @@ export class ViewApiComponent {
 
 function render(spec: any): any {
   const view = new vega.View(vega.parse(spec), {
-    renderer:  'canvas',  // renderer (canvas or svg)
-    container: '#view',   // parent DOM container
-    hover:     true       // enable hover processing
+    // * NOTE: svg or canvas
+    renderer: 'canvas',
+    // * NOTE: DOM container
+    container: '#view',
+    // * NOTE: processing for hover
+    hover: true
   });
   return view.runAsync();
 }
